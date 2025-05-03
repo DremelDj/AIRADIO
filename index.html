@@ -14,7 +14,6 @@
       background: radial-gradient(circle at top, #000 0%, #0a0a0a 100%);
       color: #ffffff;
       text-align: center;
-      overflow-x: hidden;
     }
 
     .header-image {
@@ -41,24 +40,27 @@
       margin-bottom: 30px;
     }
 
-    .player {
-      margin: 30px 0;
+    .buttons {
+      margin-top: 30px;
     }
 
-    .note, .vlc {
-      margin-top: 20px;
-      font-size: 0.95em;
-      color: #aaa;
-    }
-
-    a {
-      color: #00ffff;
-      text-decoration: none;
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
       font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .button:hover {
+      background-color: #00cccc;
     }
 
     .social {
@@ -89,17 +91,9 @@
     <h1>📡 AIRadio</h1>
     <p class="description">Broadcasting from deep space – where silence meets frequency, and machines compose dreams.</p>
 
-    <div class="player">
-      <p>🔊 This stream may not auto-play on all browsers. If it doesn't, use the links below.</p>
-    </div>
-
-    <div class="note">
-      📎 <a href="http://radio.hoarstream.com:1230/;?type=http&nocache=1746291001" target="_blank">Open the stream in a new window</a>
-    </div>
-
-    <div class="vlc">
-      🎧 Or open in <strong>VLC Player</strong>:<br/>
-      <code>http://radio.hoarstream.com:1230/;?type=http&nocache=1746291001</code>
+    <div class="buttons">
+      <a class="button" href="http://radio.hoarstream.com:1230/;" target="_blank">🌐 Open Stream</a>
+      <a class="button" href="http://radio.hoarstream.com:1230/;" target="_blank">🎧 Open in VLC</a>
     </div>
 
     <div class="social">
