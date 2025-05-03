@@ -17,17 +17,14 @@
       overflow-x: hidden;
     }
 
-    .stars {
-      position: fixed;
+    .header-image {
       width: 100%;
-      height: 100%;
-      background: transparent url('https://i.ibb.co/w6H542X/stars.gif') repeat top center;
-      z-index: -1;
-      opacity: 0.2;
+      max-height: 400px;
+      object-fit: cover;
     }
 
     .container {
-      padding: 60px 20px;
+      padding: 40px 20px;
       max-width: 700px;
       margin: auto;
     }
@@ -44,9 +41,8 @@
       margin-bottom: 30px;
     }
 
-    iframe {
-      border: none;
-      margin-top: 20px;
+    .player {
+      margin: 30px 0;
     }
 
     .note, .vlc {
@@ -87,23 +83,23 @@
   </style>
 </head>
 <body>
-  <div class="stars"></div>
+  <img src="A_digital_illustration_depicts_a_retro-futuristic_.png" alt="Cosmic Radio" class="header-image"/>
 
   <div class="container">
     <h1>📡 AIRadio</h1>
-    <p class="description">Streaming from the edge of the machine soul – where circuits dream and music breathes.</p>
+    <p class="description">Broadcasting from deep space – where silence meets frequency, and machines compose dreams.</p>
 
-    <!-- Player iframe -->
-    <iframe src="https://player.internet-radio.com/player/hoarstream/1230"
-            width="300" height="120" allow="autoplay"></iframe>
+    <div class="player">
+      <p>🔊 This stream may not auto-play on all browsers. If it doesn't, use the links below.</p>
+    </div>
 
     <div class="note">
-      ⚠️ If the player doesn't start, you can <a href="https://radio.hoarstream.com:1230/;" target="_blank">click here to open the stream</a>.
+      📎 <a href="http://radio.hoarstream.com:1230/;?type=http&nocache=1746291001" target="_blank">Open the stream in a new window</a>
     </div>
 
     <div class="vlc">
-      🎧 Or open in <strong>VLC player</strong>:<br/>
-      <code>https://radio.hoarstream.com:1230/;</code>
+      🎧 Or open in <strong>VLC Player</strong>:<br/>
+      <code>http://radio.hoarstream.com:1230/;?type=http&nocache=1746291001</code>
     </div>
 
     <div class="social">
