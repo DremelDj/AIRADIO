@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AIRadio - Streaming Live</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      color: #ffffff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .container {
+      background: #1e1e1e;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+
+    p.description {
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+
+    iframe {
+      border: none;
+      margin-top: 20px;
+    }
+
+    .note, .vlc {
+      margin-top: 20px;
+      font-size: 0.95em;
+      color: #aaa;
+    }
+
+    a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .social {
+      margin-top: 30px;
+    }
+
+    .social a {
+      margin: 0 10px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📡 AIRadio</h1>
+    <p class="description">Streaming from the edge of the machine soul – where circuits dream and music breathes.</p>
+
+    <!-- Player iframe -->
+    <iframe src="https://player.internet-radio.com/player/hoarstream/1230"
+            width="300" height="120" allow="autoplay"></iframe>
+
+    <div class="note">
+      ⚠️ If the player doesn't start, you can <a href="https://radio.hoarstream.com:1230/;" target="_blank">click here to open the stream</a>.
+    </div>
+
+    <div class="vlc">
+      🎧 Or right-click and open in <strong>VLC player</strong>:<br/>
+      <code>https://radio.hoarstream.com:1230/;</code>
+    </div>
+
+    <div class="social">
+      <p>🔗 Follow AIRadio:</p>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      <a href="mailto:your@email.com">Email</a>
+    </div>
+  </div>
+</body>
+</html>
