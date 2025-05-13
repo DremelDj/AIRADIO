@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>AIRadio | The Future of Sound</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            background-color: #0b1f33;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .slideshow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .slideshow img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fade 24s infinite;
+        }
+        .slideshow img:nth-child(1) { animation-delay: 0s; }
+.slideshow img:nth-child(2) { animation-delay: 4s; }
+.slideshow img:nth-child(3) { animation-delay: 8s; }
+.slideshow img:nth-child(4) { animation-delay: 12s; }
+.slideshow img:nth-child(5) { animation-delay: 16s; }
+.slideshow img:nth-child(6) { animation-delay: 20s; }
+
+
+        @keyframes fade {
+            0% { opacity: 0; }
+            4% { opacity: 1; }
+            24% { opacity: 1; }
+            28% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 100px 20px 40px 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        .button {
+            background-color: #00bfff;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #0b1f33;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #0099cc;
+        }
+        footer {
+            font-size: 12px;
+            color: #888;
+            padding: 30px 10px;
+        }
+        a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow">
+        <img src="bg1.png" alt="bg1">
+<img src="bg2.png" alt="bg2">
+<img src="bg3.png" alt="bg3">
+<img src="bg4.png" alt="bg4">
+<img src="bg5.png" alt="bg5">
+<img src="bg6.png" alt="bg6">
+
+    </div>
+
+    <div class="content">
+        <h1>AIRadio</h1>
+        <p>🎶 Il futuro del suono è adesso. L’AI incontra la creatività. Tu, ci sei?<br>
+        🎶 The future of sound is now. AI meets creativity. Are you in?</p>
+
+        <div class="buttons">
+            <a href="player.html" class="button">🎧 Listen AI RADIO</a>
+            <a href="mailto:submit@ai-radio.live" class="button">📤 Invia la tua traccia</a>
+        </div>
+
+        <div class="buttons">
+            <a href="mailto:info@ai-radio.live" class="button">📩 Info</a>
+            <a href="mailto:support@ai-radio.live" class="button">🛠 Supporto</a>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 AIRadio. All rights reserved. |
+        <a href="privacy.html">Privacy & Terms</a> |
+        AIRadio™ is a registered concept and creative project.
+    </footer>
+
+</body>
+</html>
