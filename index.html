@@ -28,7 +28,7 @@
     }
 
     h1 {
-      font-size: 3.75em;   /* 3em × 1.25 */
+      font-size: 3.75em;
       margin: 0;
     }
     p {
@@ -40,20 +40,15 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      margin-left: 3.5cm;
-      margin-top: 3.5cm;
+      align-items: flex-start;
+      gap: 3mm;               /* distanza tra i 4 pulsanti sottostanti */
+      margin-left: 2cm;       /* sposta il gruppo di 2 cm a destra */
     }
 
-    /* Primo pulsante: +2cm a destra */
+    /* Primo pulsante: +2cm (gruppo) +2cm = 4cm da sinistra, -1.5cm verso l’alto */
     .button-group > a:nth-of-type(1) {
       margin-left: 2cm;
-    }
-    /* Pulsanti sotto: +2cm a destra e +3cm verso il basso */
-    .button-group > a + a {
-      margin-left: 2cm;
-      margin-top: 3cm;
+      margin-top: -1.5cm;
     }
 
     .button {
@@ -111,7 +106,7 @@
   <footer>
     © 2025 AI-RADIO. All rights reserved. |
     <a href="privacy.html">Privacy & Terms</a> |
-    AI-RADIO™ is a registered concept and creative project.
+    AI-RADIO™ is a registered concept e progetto creativo.
   </footer>
 
 </body>
