@@ -1,52 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>AI-RADIO Player</title>
-  <style>
-    /* Full-screen reset */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      background: #0b1f33 url('player-bg.png') center/cover no-repeat fixed;
-      font-family: 'Arial', sans-serif;
-    }
+/* Contenitore full-screen con overlay blu trasparente */
+.iframe-player {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 191, 255, 0.3); /* blu 70% trasparente */
+  overflow: hidden;
+}
 
-    /* Contenitore iframe che occupa tutto */
-    .iframe-player {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0,0,0,0.5);
-    }
+/* Iframe ridotto per togliere lo scroll verticale */
+.iframe-player iframe {
+  width: 90vw;            /* 90% della larghezza viewport */
+  max-width: 800px;       /* non più largo di 800px */
+  height: 80vh;           /* 80% dell’altezza viewport */
+  max-height: 600px;      /* non più alto di 600px */
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;       /* nasconde eventuali scrollbar interne */
+}
 
-    /* Iframe “pieno” ma con un bordo soft */
-    .iframe-player iframe {
-      width: 90vw;           /* 90% della larghezza del viewport */
-      height: 90vh;          /* 90% dell’altezza del viewport */
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
-      overflow: hidden;      /* nasconde eventuali scroll interni */
-    }
-  </style>
-</head>
-<body>
-
-  <div class="iframe-player">
-    <iframe
-      src="https://radio.hoarstream.com/widget/audio-player/19?listeners=false"
-      allow="autoplay"
-      scrolling="no"
-      title="AI-RADIO Player">
-    </iframe>
-  </div>
-
-</body>
-</html>
