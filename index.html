@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AIRadio | The Future of Sound</title>
+  <title>AI-RADIO | The Future of Sound</title>
   <style>
     html, body {
       margin: 0;
@@ -28,7 +28,7 @@
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 3.75em;   /* 3em × 1.25 */
       margin: 0;
     }
     p {
@@ -37,14 +37,23 @@
     }
 
     .button-group {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 15px;
+      margin-left: 3.5cm;
+      margin-top: 3.5cm;
+    }
 
-      /* sposto di 3,5cm a destra e riduco il top di 1,5cm */
-      margin-left: 3.5cm;     /* verso destra */
-      margin-top: 3.5cm;      /* 5cm originari – 1,5cm spostamento verso l’alto = 3,5cm */
+    /* Primo pulsante: +2cm a destra */
+    .button-group > a:nth-of-type(1) {
+      margin-left: 2cm;
+    }
+    /* Pulsanti sotto: +2cm a destra e +3cm verso il basso */
+    .button-group > a + a {
+      margin-left: 2cm;
+      margin-top: 3cm;
     }
 
     .button {
@@ -82,7 +91,7 @@
 <body onload="setTimeout(() => document.getElementById('introAudio').play(), 2000)">
 
   <div class="content">
-    <h1>AIRadio</h1>
+    <h1>AI-RADIO</h1>
     <p>The future of sound is now. AI meets creativity. Are you in?</p>
 
     <div class="button-group">
@@ -100,14 +109,10 @@
   </div>
 
   <footer>
-    © 2025 AIRadio. All rights reserved. |
+    © 2025 AI-RADIO. All rights reserved. |
     <a href="privacy.html">Privacy & Terms</a> |
-    AIRadio™ is a registered concept e progetto creativo.
+    AI-RADIO™ is a registered concept and creative project.
   </footer>
-
-</body>
-</html>
-
 
 </body>
 </html>
