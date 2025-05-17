@@ -10,8 +10,6 @@
       height: 100%;
       overflow: hidden;
       font-family: 'Arial', sans-serif;
-
-      /* SFONDO RIPENSATO */
       background-color: #0b1f33;
       background-image: url('bg4.png');
       background-repeat: no-repeat;
@@ -21,26 +19,34 @@
       color: #ffffff;
     }
 
+    /* Contenitore assoluto per testo e pulsanti */
     .content {
-      position: relative;
+      position: absolute;
+      left: 8cm;
+      top: 2cm;
       z-index: 1;
-      text-align: center;
-      padding: 80px 20px 40px;
+      /* testo allineato a sinistra */
+      text-align: left;
     }
+
     h1 {
       font-size: 3em;
-      margin-bottom: 10px;
+      margin: 0;
     }
     p {
       font-size: 1.2em;
-      margin-bottom: 30px;
+      margin: 0.5em 0 0;
     }
+
+    /* Pulsanti incolonnati, centrati rispetto al contenitore, 5cm sotto il testo */
     .button-group {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 15px;
+      margin-top: 5cm;
     }
+
     .button {
       background-color: #00bfff;
       border: none;
@@ -55,6 +61,7 @@
     .button:hover {
       background-color: #0099cc;
     }
+
     footer {
       position: absolute;
       bottom: 10px;
@@ -76,7 +83,7 @@
 
   <div class="content">
     <h1>AIRadio</h1>
-    <p>🎶 The future of sound is now. AI meets creativity. Are you in?</p>
+    <p>The future of sound is now. AI meets creativity. Are you in?</p>
 
     <div class="button-group">
       <audio id="introAudio">
@@ -88,19 +95,15 @@
       <a href="mailto:submit@ai-radio.live" class="button">📤 Submit your track</a>
       <a href="mailto:info@ai-radio.live" class="button">📩 Info</a>
       <a href="mailto:support@ai-radio.live" class="button">🛠 Support</a>
-      <a href="https://www.buymeacoffee.com/robrobertoe" class="button" target="_blank">💖 Donate – Help AI-RADIO grow</a>
+      <a href="https://www.buymeacoffee.com/robrobertoe" class="button" target="_blank">💖 Donate</a>
     </div>
   </div>
 
   <footer>
     © 2025 AIRadio. All rights reserved. |
     <a href="privacy.html">Privacy & Terms</a> |
-    AIRadio™ is a registered concept e progetto creativo.
+    AIRadio™ is a registered concept and creative project.
   </footer>
-
-</body>
-</html>
-
 
 </body>
 </html>
