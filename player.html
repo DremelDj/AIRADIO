@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>AIRadio Player</title>
+    <style>
+        body {
+            background-color: #0b1f33;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        audio {
+            margin: 20px 0;
+            width: 80%;
+            max-width: 400px;
+        }
+        .note {
+            color: #bbb;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+        a {
+            color: #00bfff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎧 AIRadio Player</h1>
+    <p>Premi play per ascoltare la diretta</p>
+
+    <audio controls>
+        <source src="https://radio.hoarstream.com:1230/index.html?sid=1" type="audio/mpeg">
+        Il tuo browser non supporta l’audio HTML5.
+    </audio>
+
+    <p class="note">⚠️ Player don't work?, <a href="https://radio.hoarstream.com:1230/index.html?sid=1" target="_blank">click to direct stream</a> ⚠️</p>
+
+</body>
+</html>
