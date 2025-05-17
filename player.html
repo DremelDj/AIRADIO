@@ -1,43 +1,90 @@
 
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>AIRadio Player</title>
-    <style>
-        body {
-            background-color: #0b1f33;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        audio {
-            margin: 20px 0;
-            width: 80%;
-            max-width: 400px;
-        }
-        .note {
-            color: #bbb;
-            font-size: 0.9em;
-            margin-top: 20px;
-        }
-        a {
-            color: #00bfff;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>AI-RADIO Player</title>
+  <!-- Plyr CSS -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <style>
+    /* FULLSCREEN BACKGROUND */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('player-bg.jpg') center/cover no-repeat fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+    /* CONTENITORE PLAYER */
+    .player-container {
+      width: 360px;
+      max-width: 90%;
+      text-align: center;
+    }
+    /* COPERTINA */
+    #cover-art {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5em;
+    }
+    /* OVERRIDE DARK CONTROLS */
+    .plyr--audio .plyr__controls {
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>🎧 AIRadio Player</h1>
-    <p>Premi play per ascoltare la diretta</p>
+  <div class="player-container">
+    <!-- COVER E INFO -->
+    <img id="cover-art" src="cover.jpg" alt="Cover Art">
+    <h2 id="track-title">Loading…</h2>
+    <p id="track-subtitle">Stay tuned</p>
 
-    <audio controls>
-        <source src="https://radio.hoarstream.com:1230/index.html?sid=1" type="audio/mpeg">
-        Il tuo browser non supporta l’audio HTML5.
+    <!-- PLAYER AUDIO -->
+    <audio id="audio-player" class="js-player" controls crossorigin>
+      <source src="https://radio.hoarstream.com:1230/stream" type="audio/mp3">
+      Your browser does not support HTML5 audio.
     </audio>
+  </div>
 
-    <p class="note">⚠️ Player don't work?, <a href="https://radio.hoarstream.com:1230/index.html?sid=1" target="_blank">click to direct stream</a> ⚠️</p>
+  <!-- Plyr JS -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+    // Inizializza Plyr con autoplay e solo i controlli base
+    const player = new Plyr('#audio-player', {
+      controls: ['play', 'progress', 'current-time', 'mute', 'volume'],
+      autoplay: true,
+    });
+
+    // Funzione per pescare i metadata dal server Shoutcast
+    async function fetchMeta() {
+      try {
+        const res = await fetch('https://radio.hoarstream.com:1230/status-json.xsl?sid=1');
+        const json = await res.json();
+        const source = Array.isArray(json.icestats.source)
+          ? json.icestats.source[0]
+          : json.icestats.source;
+        const title = source.title || 'Unknown Track';
+        document.getElementById('track-title').textContent = title;
+        // Se il server restituisce un URL cover in metadata:
+        // if (source.artist_art) {
+        //   document.getElementById('cover-art').src = source.artist_art;
+        // }
+      } catch (e) {
+        console.warn('Impossibile caricare metadata:', e);
+      }
+    }
+
+    // Aggiorna ogni 15 secondi
+    setInterval(fetchMeta, 15000);
+    fetchMeta();
+  </script>
 
 </body>
 </html>
