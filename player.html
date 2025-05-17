@@ -4,43 +4,46 @@
   <meta charset="UTF-8">
   <title>AI-RADIO Player</title>
   <style>
-    /* Reset e sfondo full-screen */
+    /* Full-screen reset */
     html, body {
-      margin: 0; padding: 0;
-      width: 100%; height: 100%;
-      background: #0b1f33 url('player-bg.png') center/cover no-repeat fixed;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
+      background: #0b1f33 url('player-bg.png') center/cover no-repeat fixed;
       font-family: 'Arial', sans-serif;
-      color: #fff;
     }
-    /* Contenitore iframe */
+
+    /* Contenitore iframe che occupa tutto */
     .iframe-player {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      border: none;
       display: flex;
       justify-content: center;
       align-items: center;
       background: rgba(0,0,0,0.5);
     }
+
+    /* Iframe “pieno” ma con un bordo soft */
     .iframe-player iframe {
-      width: 360px;
-      max-width: 90%;
-      height: 360px;
-      max-height: 90%;
+      width: 90vw;           /* 90% della larghezza del viewport */
+      height: 90vh;          /* 90% dell’altezza del viewport */
       border: none;
       border-radius: 8px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      overflow: hidden;      /* nasconde eventuali scroll interni */
     }
   </style>
 </head>
 <body>
 
   <div class="iframe-player">
-    <iframe 
-      src="https://radio.hoarstream.com/widget/audio-player/19?listeners=false" 
-      allow="autoplay" 
+    <iframe
+      src="https://radio.hoarstream.com/widget/audio-player/19?listeners=false"
+      allow="autoplay"
+      scrolling="no"
       title="AI-RADIO Player">
     </iframe>
   </div>
