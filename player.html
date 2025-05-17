@@ -1,24 +1,48 @@
-/* Contenitore full-screen con overlay blu trasparente */
-.iframe-player {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 191, 255, 0.3); /* blu 70% trasparente */
-  overflow: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-RADIO Player</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      background: #0b1f33 url('player-bg.png') center/cover no-repeat fixed;
+      font-family: 'Arial', sans-serif;
+    }
+    .iframe-player {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 191, 255, 0.3);
+      overflow: hidden;
+    }
+    .iframe-player iframe {
+      width: 90vw;
+      max-width: 800px;
+      height: 80vh;
+      max-height: 600px;
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
 
-/* Iframe ridotto per togliere lo scroll verticale */
-.iframe-player iframe {
-  width: 90vw;            /* 90% della larghezza viewport */
-  max-width: 800px;       /* non più largo di 800px */
-  height: 80vh;           /* 80% dell’altezza viewport */
-  max-height: 600px;      /* non più alto di 600px */
-  border: none;
-  border-radius: 8px;
-  overflow: hidden;       /* nasconde eventuali scrollbar interne */
-}
+  <div class="iframe-player">
+    <iframe
+      src="https://radio.hoarstream.com/widget/audio-player/19?listeners=false"
+      allow="autoplay"
+      scrolling="no"
+      title="AI-RADIO Player">
+    </iframe>
+  </div>
 
+</body>
+</html>
