@@ -19,13 +19,11 @@
       color: #ffffff;
     }
 
-    /* Contenitore assoluto per testo e pulsanti */
     .content {
       position: absolute;
       left: 8cm;
       top: 2cm;
       z-index: 1;
-      /* testo allineato a sinistra */
       text-align: left;
     }
 
@@ -38,13 +36,15 @@
       margin: 0.5em 0 0;
     }
 
-    /* Pulsanti incolonnati, centrati rispetto al contenitore, 5cm sotto il testo */
     .button-group {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 15px;
-      margin-top: 5cm;
+
+      /* sposto di 3,5cm a destra e riduco il top di 1,5cm */
+      margin-left: 3.5cm;     /* verso destra */
+      margin-top: 3.5cm;      /* 5cm originari – 1,5cm spostamento verso l’alto = 3,5cm */
     }
 
     .button {
@@ -102,8 +102,12 @@
   <footer>
     © 2025 AIRadio. All rights reserved. |
     <a href="privacy.html">Privacy & Terms</a> |
-    AIRadio™ is a registered concept and creative project.
+    AIRadio™ is a registered concept e progetto creativo.
   </footer>
+
+</body>
+</html>
+
 
 </body>
 </html>
