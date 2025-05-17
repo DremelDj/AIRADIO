@@ -19,7 +19,7 @@
       color: #ffffff;
     }
 
-    /* Testo fisso in alto a sinistra */
+    /* il titolo resta fisso in alto a sinistra */
     .content {
       position: absolute;
       left: 8cm;
@@ -33,28 +33,28 @@
     }
     .content p {
       font-size: 1.2em;
-      margin: 0.5em 0 0;
+      margin: .5em 0 0;
     }
 
-    /* Primo pulsante centrato sulla piccola radio olografica */
+    /* PRIMO PULSANTE: centrato sulla piccola area olografica */
     .primary-button {
       position: absolute;
-      left: 36.5%;           /* X ≃ 700px / 1920px */
-      top: 41.7%;            /* Y ≃ 450px / 1080px */
+      left: 45%;    /* ≃ centro orizzontale del primo ologramma */
+      top: 27%;     /* ≃ centro verticale del primo ologramma */
       transform: translate(-50%, -50%);
       z-index: 2;
     }
 
-    /* Gruppo dei 4 pulsanti centrato sulla radio più grande */
+    /* GRUPPO DI QUATTRO PULSANTI: centrato sulla grande area olografica */
     .secondary-buttons {
       position: absolute;
-      left: 41.6%;           /* X ≃ 800px / 1920px */
-      top: 72.2%;            /* Y ≃ 780px / 1080px */
+      left: 45%;    /* ≃ centro orizzontale del secondo ologramma */
+      top: 62%;     /* ≃ centro verticale del secondo ologramma */
       transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3mm;
+      gap: 3mm;     /* spaziatura verticale tra i quattro pulsanti */
       z-index: 2;
     }
 
@@ -109,8 +109,14 @@
     <a href="mailto:submit@ai-radio.live" class="button">📤 Submit your track</a>
     <a href="mailto:info@ai-radio.live" class="button">📩 Info</a>
     <a href="mailto:support@ai-radio.live" class="button">🛠 Support</a>
-    <a href="https://www.buymeacoffee.com/robrobertoe" class="button" target="_blan_
+    <a href="https://www.buymeacoffee.com/robrobertoe" class="button" target="_blank">💖 Donate – Help AI-RADIO grow</a>
+  </div>
 
+  <footer>
+    © 2025 AI-RADIO. All rights reserved. |
+    <a href="privacy.html">Privacy & Terms</a> |
+    AI-RADIO™ is a registered concept and creative project.
+  </footer>
 
 </body>
 </html>
