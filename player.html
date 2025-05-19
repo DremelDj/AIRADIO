@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>AI‑Radio Player</title>
+  <title>AI-Radio Player</title>
 
-  <!-- Tailwind CSS (coerente con index) -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Plyr CSS-->
+  <!-- Plyr CSS -->
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
   <style>
-    /* BACKGROUND FULLSCREEN */
     body {
       margin: 0;
       padding: 0;
@@ -24,13 +23,11 @@
       font-family: 'Arial', sans-serif;
       color: #fff;
     }
-    /* CONTENITORE PLAYER */
     .player-container {
       width: 360px;
       max-width: 90%;
       text-align: center;
     }
-    /* OVERRIDE CONTROLLI DARK */
     .plyr--audio .plyr__controls {
       background: rgba(0, 0, 0, 0.6);
       border-radius: 8px;
@@ -39,11 +36,10 @@
 </head>
 <body>
   <div class="player-container">
-    <!-- COVER & TITLE -->
     <img id="cover-art" src="cover-placeholder.png" alt="Cover Art" class="w-40 h-40 mx-auto mb-4 rounded-xl object-cover shadow-lg" />
-    <h2 id="track-title" class="text-lg font-semibold mb-2">Caricamento traccia…</h2>
+    <h2 id="track-title" class="text-lg font-semibold mb-1">Caricamento…</h2>
+    <p id="track-artist" class="text-sm text-neutral-300 mb-3"></p>
 
-    <!-- AUDIO PLAYER -->
     <audio id="audio-player" class="js-player" controls crossorigin>
       <source src="https://radio.hoarstream.com:1230/stream" type="audio/mp3" />
       Your browser does not support HTML5 audio.
@@ -53,35 +49,59 @@
   <!-- Plyr JS -->
   <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
   <script>
-    // Inizializza Plyr con autoplay e controlli essenziali
+    // Inizializza Plyr
     const player = new Plyr('#audio-player', {
       controls: ['play', 'progress', 'current-time', 'mute', 'volume'],
       autoplay: true,
     });
 
-    // Funzione per ottenere metadata da Shoutcast
+    /**
+     * Ottiene il titolo corrente dal JSON Shoutcast
+     * poi recupera metadati estesi tramite
+     * https://radio.hoarstream.com/widget/get-track-data?track_name=<title>
+     */
     async function fetchMeta() {
       try {
-        const res = await fetch('https://radio.hoarstream.com:1230/status-json.xsl?sid=1');
-        const json = await res.json();
-        const source = Array.isArray(json.icestats.source) ? json.icestats.source[0] : json.icestats.source;
-        const title = source.title || 'Unknown Track';
-        document.getElementById('track-title').textContent = title;
+        // 1) Track corrente da Shoutcast
+        const statusRes = await fetch('https://radio.hoarstream.com:1230/status-json.xsl?sid=1');
+        const statusJson = await statusRes.json();
+        const source = Array.isArray(statusJson.icestats.source) ? statusJson.icestats.source[0] : statusJson.icestats.source;
+        const rawTitle = source.title || '';
 
-        // Cover art se restituita dal server
-        if (source.artist_art) {
-          document.getElementById('cover-art').src = source.artist_art;
-        } else {
-          document.getElementById('cover-art').src = 'cover-placeholder.png';
+        // Splitta eventuale "Artist - Title"
+        let displayTitle = rawTitle;
+        let displayArtist = '';
+        if (rawTitle.includes(' - ')) {
+          [displayArtist, displayTitle] = rawTitle.split(' - ').map(s => s.trim());
         }
-      } catch (e) {
-        console.warn('Impossibile caricare metadata:', e);
+        document.getElementById('track-title').textContent = displayTitle || 'Unknown Track';
+        document.getElementById('track-artist').textContent = displayArtist;
+
+        // 2) Metadati extra (cover, artist ufficiale)
+        if (rawTitle) {
+          const metaURL = `https://radio.hoarstream.com/widget/get-track-data?track_name=${encodeURIComponent(rawTitle)}`;
+          const metaRes = await fetch(metaURL);
+          if (metaRes.ok) {
+            const metaJson = await metaRes.json();
+            // { artist: "…", title: "…", cover_art_url: "…" }
+            if (metaJson.artist) {
+              document.getElementById('track-artist').textContent = metaJson.artist;
+            }
+            if (metaJson.cover_art_url) {
+              document.getElementById('cover-art').src = metaJson.cover_art_url;
+            } else {
+              document.getElementById('cover-art').src = 'cover-placeholder.png';
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Impossibile caricare metadata:', err);
       }
     }
 
-    // Aggiorna ogni 15 secondi
-    setInterval(fetchMeta, 15000);
+    // Aggiorna metadati ogni 15" per non perdere cambi canzone
     fetchMeta();
+    setInterval(fetchMeta, 15000);
   </script>
 </body>
 </html>
