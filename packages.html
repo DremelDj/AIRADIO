@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Radio · Pacchetti di Caricamento</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-950 text-neutral-200 font-sans leading-relaxed">
+  <!-- HEADER -->
+  <header class="text-center py-10 px-4">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-fuchsia-400 drop-shadow-lg">Carica la tua Traccia</h1>
+    <p class="mt-2 text-neutral-400">Scegli il pacchetto che fa vibrare meglio la tua musica</p>
+  </header>
+
+  <!-- REGOLAMENTO (collapsible) -->
+  <section class="max-w-4xl mx-auto px-4 mb-12">
+    <details class="bg-neutral-800/60 backdrop-blur rounded-xl shadow-lg p-6 open:shadow-xl">
+      <summary class="cursor-pointer font-semibold text-lg text-fuchsia-300 mb-4">📜 Regolamento di Caricamento e Airplay (clicca per leggere)</summary>
+      <article class="prose prose-invert max-w-none">
+        <h3>0. Visione &amp; Missione</h3>
+        <p>AI-Radio amplifica le voci indipendenti fondendo creatività umana e algoritmi. Questo regolamento tutela gli artisti, assicura equità di esposizione e delinea come ogni brano vibra nell’etere.</p>
+        <h3>1. Definizioni</h3>
+        <ul>
+          <li><strong>Utente</strong>: chiunque crei un account su AI-Radio.</li>
+          <li><strong>Traccia</strong>: file audio originale o con licenza caricata dall’Utente.</li>
+          <li><strong>Pacchetto</strong>: credito prepagato di tracce e rotazione, con scadenza.</li>
+          <li><strong>Rotazione garantita</strong>: numero minimo di passaggi radiofonici assicurati per traccia.</li>
+          <li><strong>Slot dedicato Premium</strong>: finestra oraria prenotabile dall’Utente (±10 min).</li>
+        </ul>
+        <h3>2. Pacchetti di Caricamento</h3>
+        <table>
+          <thead>
+            <tr><th>Pacchetto</th><th>Prezzo</th><th>Tracce</th><th>Validità</th><th>Rotazione</th><th>Slot</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Free</strong></td><td>0 €</td><td>5</td><td>Finché l’account è attivo</td><td>1 play/48 h</td><td>—</td></tr>
+            <tr><td><strong>Starter</strong></td><td>9,90 €</td><td>10</td><td>30 giorni</td><td>1 play/giorno</td><td>—</td></tr>
+            <tr><td><strong>Momentum</strong></td><td>19,90 €</td><td>25</td><td>60 giorni</td><td>2 play/giorno</td><td>1 slot/sett.</td></tr>
+            <tr><td><strong>Spotlight</strong></td><td>39,90 €</td><td>50</td><td>90 giorni</td><td>3 play/giorno</td><td>1 slot/sett. Premium</td></tr>
+          </tbody>
+        </table>
+        <h3>3. Programmazione &amp; Rotazione</h3>
+        <p>Ogni giornata è suddivisa in blocchi di genere da 1/2 h… (vedi regolamento completo).</p>
+        <h3>4. Linee guida sui Contenuti</h3>
+        <p>Solo brani originali o con licenza; niente contenuti che incitano odio…</p>
+        <h3>5. Specifiche Tecniche</h3>
+        <ul>
+          <li>Formato MP3 320 kbps</li>
+          <li>Cover quadrata 1400–3000 px</li>
+          <li>Loudness −14 LUFS ±1</li>
+        </ul>
+        <p class="text-sm text-neutral-400">Ultimo aggiornamento: 20 maggio 2025</p>
+      </article>
+    </details>
+  </section>
+
+  <!-- PACCHETTI BUTTONS -->
+  <section class="max-w-4xl mx-auto px-4 mb-20">
+    <h2 class="text-2xl font-bold text-center mb-6">Scegli il tuo Pacchetto</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+      <!-- Free -->
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Free</h3>
+        <p class="mb-4 text-neutral-400">5 tracce<br/>1 play/48 h</p>
+        <a href="upload.html?pkg=free" class="mt-auto inline-block bg-neutral-700 py-2 px-4 rounded font-bold hover:bg-fuchsia-500 transition">Inizia Gratis</a>
+      </div>
+      <!-- Starter -->
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Starter</h3>
+        <p class="mb-4 text-neutral-400">10 tracce · 30 gg<br/>1 play/giorno</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="STARTER10" />
+          <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=starter" />
+          <button class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition">9,90 €</button>
+        </form>
+      </div>
+      <!-- Momentum -->
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Momentum</h3>
+        <p class="mb-4 text-neutral-400">25 tracce · 60 gg<br/>2 play/giorno</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="MOMENTUM25" />
+          <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=momentum" />
+          <button class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition">19,90 €</button>
+        </form>
+      </div>
+      <!-- Spotlight -->
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Spotlight</h3>
+        <p class="mb-4 text-neutral-400">50 tracce · 90 gg<br/>3 play/giorno + slot</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="SPOTLIGHT50" />
+          <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=spotlight" />
+          <button class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition">39,90 €</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-6 text-neutral-500 text-sm">© 2025 AI-Radio · Frequenze indipendenti</footer>
+</body>
+</html>
