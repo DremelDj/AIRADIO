@@ -30,17 +30,19 @@
     .content h1 {
       font-size: 3.75em;
       margin: 0;
+      text-shadow: 0 0 6px rgba(0, 191, 255, 0.7);
     }
     .content p {
       font-size: 1.2em;
       margin: .5em 0 0;
+      text-shadow: 0 0 4px rgba(0, 191, 255, 0.6);
     }
 
     /* posizionamento primo pulsante */
     .primary-button {
       position: absolute;
-      left: 36%;    /* 36% dal bordo sinistro */
-      top: 33%;     /* 33% dal bordo alto */
+      left: 36%;
+      top: 33%;
       transform: translate(-50%, -50%);
       z-index: 2;
     }
@@ -48,29 +50,31 @@
     /* gruppo dei quattro pulsanti */
     .secondary-buttons {
       position: absolute;
-      left: 36%;    /* 36% dal bordo sinistro */
-      top: 60%;     /* 60% dal bordo alto */
+      left: 36%;
+      top: 60%;
       transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3mm;     /* spaziatura verticale */
+      gap: 3mm;
       z-index: 2;
     }
 
-    /* stile “link trasparente” per tutti i pulsanti */
+    /* testi dei bottoni più luminosi */
     .button {
-      background-color: transparent;      /* trasparente */
-      padding: 15px 30px;                 /* area cliccabile */
+      background-color: transparent;
+      padding: 15px 30px;
       font-size: 1em;
-      border: none;                        /* nessun bordo */
-      color: #00bfff;                      /* testo azzurro */
-      text-decoration: underline;         /* sottolineatura */
+      border: none;
+      color: #ffffff;                       /* bianco puro */
+      text-decoration: underline;
+      text-shadow: 0 0 4px rgba(0, 191, 255, 0.8); /* alone neon */
       cursor: pointer;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
     }
     .button:hover {
-      color: #0099cc;                      /* scurisce al passaggio */
+      color: #e0f7ff;
+      text-shadow: 0 0 8px rgba(0, 191, 255, 1);
     }
 
     footer {
@@ -81,9 +85,7 @@
       font-size: 12px;
       color: #ccc;
     }
-    a {
-      text-decoration: none;  /* già gestito in .button */
-    }
+    a { text-decoration: none; }
   </style>
 </head>
 <body onload="setTimeout(() => document.getElementById('introAudio').play(), 2000)">
@@ -110,13 +112,9 @@
 
   <footer>
     © 2025 AI-RADIO. All rights reserved. |
-    <a href="privacy.html">Privacy & Terms</a> |
+    <a href="privacy.html" class="button">Privacy & Terms</a> |
     AI-RADIO™ is a registered concept and creative project.
   </footer>
-
-</body>
-</html>
-
 
 </body>
 </html>
