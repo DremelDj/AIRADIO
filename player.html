@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>AI-RADIO Player</title>
-  <!-- Plyr CSS -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>AI‑Radio Player</title>
+
+  <!-- Tailwind CSS (coerente con index) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Plyr CSS-->
   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+
   <style>
-    /* FULLSCREEN BACKGROUND */
+    /* BACKGROUND FULLSCREEN */
     body {
       margin: 0;
       padding: 0;
@@ -24,7 +30,7 @@
       max-width: 90%;
       text-align: center;
     }
-    /* OVERRIDE DARK CONTROLS */
+    /* OVERRIDE CONTROLLI DARK */
     .plyr--audio .plyr__controls {
       background: rgba(0, 0, 0, 0.6);
       border-radius: 8px;
@@ -32,10 +38,14 @@
   </style>
 </head>
 <body>
-  }
-    <!-- PLAYER AUDIO -->
+  <div class="player-container">
+    <!-- COVER & TITLE -->
+    <img id="cover-art" src="cover-placeholder.png" alt="Cover Art" class="w-40 h-40 mx-auto mb-4 rounded-xl object-cover shadow-lg" />
+    <h2 id="track-title" class="text-lg font-semibold mb-2">Caricamento traccia…</h2>
+
+    <!-- AUDIO PLAYER -->
     <audio id="audio-player" class="js-player" controls crossorigin>
-      <source src="https://radio.hoarstream.com:1230/stream" type="audio/mp3">
+      <source src="https://radio.hoarstream.com:1230/stream" type="audio/mp3" />
       Your browser does not support HTML5 audio.
     </audio>
   </div>
@@ -43,26 +53,27 @@
   <!-- Plyr JS -->
   <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
   <script>
-    // Inizializza Plyr con autoplay e solo i controlli base
+    // Inizializza Plyr con autoplay e controlli essenziali
     const player = new Plyr('#audio-player', {
       controls: ['play', 'progress', 'current-time', 'mute', 'volume'],
       autoplay: true,
     });
 
-    // Funzione per pescare i metadata dal server Shoutcast
+    // Funzione per ottenere metadata da Shoutcast
     async function fetchMeta() {
       try {
         const res = await fetch('https://radio.hoarstream.com:1230/status-json.xsl?sid=1');
         const json = await res.json();
-        const source = Array.isArray(json.icestats.source)
-          ? json.icestats.source[0]
-          : json.icestats.source;
+        const source = Array.isArray(json.icestats.source) ? json.icestats.source[0] : json.icestats.source;
         const title = source.title || 'Unknown Track';
         document.getElementById('track-title').textContent = title;
-        // Se il server restituisce un URL cover in metadata:
-        // if (source.artist_art) {
-        //   document.getElementById('cover-art').src = source.artist_art;
-        // }
+
+        // Cover art se restituita dal server
+        if (source.artist_art) {
+          document.getElementById('cover-art').src = source.artist_art;
+        } else {
+          document.getElementById('cover-art').src = 'cover-placeholder.png';
+        }
       } catch (e) {
         console.warn('Impossibile caricare metadata:', e);
       }
@@ -72,10 +83,5 @@
     setInterval(fetchMeta, 15000);
     fetchMeta();
   </script>
-
-</body>
-</html>
-
-
 </body>
 </html>
