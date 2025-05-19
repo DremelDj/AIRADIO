@@ -1,120 +1,107 @@
+<!-- AI‑Radio – Landing & Player (GitHub Pages ready)
+     Versione: 20 maggio 2025 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>AI-RADIO | The Future of Sound</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI‑Radio</title>
+
+  <!-- Tailwind CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AmplitudeJS styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.css" />
+
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Arial', sans-serif;
-      background-color: #0b1f33;
-      background-image: url('bg4.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
-      background-size: contain;
-      color: #ffffff;
-    }
-
-    /* titolo fisso in alto a sinistra */
-    .content {
-      position: absolute;
-      left: 8cm;
-      top: 2cm;
-      z-index: 1;
-      text-align: left;
-    }
-    .content h1 {
-      font-size: 3.75em;
-      margin: 0;
-      text-shadow: 0 0 6px rgba(0, 191, 255, 0.7);
-    }
-    .content p {
-      font-size: 1.2em;
-      margin: .5em 0 0;
-      text-shadow: 0 0 4px rgba(0, 191, 255, 0.6);
-    }
-
-    /* posizionamento primo pulsante */
-    .primary-button {
-      position: absolute;
-      left: 36%;
-      top: 33%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-
-    /* gruppo dei quattro pulsanti */
-    .secondary-buttons {
-      position: absolute;
-      left: 36%;
-      top: 60%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3mm;
-      z-index: 2;
-    }
-
-    /* testi dei bottoni più luminosi */
-    .button {
-      background-color: transparent;
-      padding: 15px 30px;
-      font-size: 1em;
-      border: none;
-      color: #ffffff;                       /* bianco puro */
-      text-decoration: underline;
-      text-shadow: 0 0 4px rgba(0, 191, 255, 0.8); /* alone neon */
-      cursor: pointer;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-    .button:hover {
-      color: #e0f7ff;
-      text-shadow: 0 0 8px rgba(0, 191, 255, 1);
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: #ccc;
-    }
-    a { text-decoration: none; }
+    body { background:#0d0d0d; color:#f1f1f1; font-family:system-ui, sans-serif; }
+    .btn { background:#f97316; padding:0.5rem 1rem; border-radius:0.5rem; }
+    .btn:hover { filter:brightness(1.1); }
+    .cover { object-fit:cover; }
   </style>
 </head>
-<body onload="setTimeout(() => document.getElementById('introAudio').play(), 2000)">
+<body class="flex flex-col items-center p-6 space-y-10">
 
-  <div class="content">
-    <h1>AI-RADIO</h1>
-    <p>The future of sound is now. AI meets creativity. Are you in?</p>
-  </div>
+  <!-- HEADER -->
+  <header class="text-center space-y-2">
+    <h1 class="text-4xl font-extrabold">AI‑Radio</h1>
+    <p class="opacity-70">Porta la tua traccia on‑air. Vibra con la community.</p>
+  </header>
 
-  <div class="primary-button">
-    <audio id="introAudio">
-      <source src="airadio.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <a href="player.html" class="button">🎧 LISTEN TO AI-RADIO</a>
-  </div>
+  <!-- PLAYER WITH METADATA & COVER ART -->
+  <section>
+    <div id="ai-radio-player" class="amplitude-player flex items-center space-x-4">
+      <img data-amplitude-song-info="cover_art_url" class="cover w-32 h-32 rounded-xl" alt="cover" />
+      <div class="info w-60">
+        <span data-amplitude-song-info="name" class="title font-bold block"></span>
+        <span data-amplitude-song-info="artist" class="artist block opacity-75"></span>
+        <progress class="amplitude-song-played-progress w-full my-2"></progress>
+        <button class="amplitude-play-pause btn">Play / Pause</button>
+      </div>
+    </div>
+  </section>
 
-  <div class="secondary-buttons">
-    <a href="mailto:submit@ai-radio.live" class="button">📤 SUBMIT YOUR TRACK</a>
-    <a href="mailto:info@ai-radio.live" class="button">📩 INFO</a>
-    <a href="mailto:support@ai-radio.live" class="button">🛠 SUPPORT</a>
-    <a href="https://www.buymeacoffee.com/robrobertoe" class="button" target="_blank">💖 DONATE - HELP AI-RADIO GROW</a>
-  </div>
+  <!-- PACKAGES -->
+  <section class="w-full max-w-xl space-y-4">
+    <h2 class="text-2xl font-semibold">Pacchetti di Caricamento</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <!-- Starter -->
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="flex flex-col items-center p-4 border rounded-xl">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="STARTER10" />
+        <span class="font-bold">Starter · 9,90&nbsp;€</span>
+        <small class="opacity-75 mb-2">10 tracce · 30&nbsp;giorni</small>
+        <button class="btn" type="submit">Acquista</button>
+      </form>
 
-  <footer>
-    © 2025 AI-RADIO. All rights reserved. |
-    <a href="privacy.html" class="button">Privacy & Terms</a> |
-    AI-RADIO™ is a registered concept and creative project.
+      <!-- Momentum -->
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="flex flex-col items-center p-4 border rounded-xl">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="MOMENTUM25" />
+        <span class="font-bold">Momentum · 19,90&nbsp;€</span>
+        <small class="opacity-75 mb-2">25 tracce · 60&nbsp;giorni</small>
+        <button class="btn" type="submit">Acquista</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SUBMIT LINK -->
+  <section class="text-center">
+    <a href="upload.html" class="btn">Submit your track</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-xs opacity-50 mt-12 text-center">
+    © 2025 AI‑Radio – Powered by GitHub Pages
   </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js"></script>
+  <script>
+    /* Carica dinamicamente la playlist da playlist.json */
+    fetch('playlist.json')
+      .then(r => r.json())
+      .then(songs => Amplitude.init({ songs: songs, continue_next: true }))
+      .catch(() => console.error('playlist.json non trovato – inserisci il file nella root'));
+  </script>
+
+  <!--
+    Esempio di playlist.json (salva nella root dello stesso repo):
+    [
+      {
+        "name": "Ocean Drive",
+        "artist": "Rob the Beatmaker",
+        "url": "tracks/ocean_drive.mp3",
+        "cover_art_url": "covers/ocean_drive.jpg"
+      },
+      {
+        "name": "Midnight Groove",
+        "artist": "Luna",
+        "url": "tracks/midnight_groove.mp3",
+        "cover_art_url": "covers/midnight_groove.jpg"
+      }
+    ]
+  -->
 
 </body>
 </html>
