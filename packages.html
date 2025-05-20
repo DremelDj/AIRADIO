@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI‑Radio · Upload Packages</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-950 text-neutral-200 font-sans leading-relaxed">
+  <!-- LANG SWITCH -->
+  <button id="lang-switch" class="fixed top-4 right-4 bg-neutral-800/70 backdrop-blur py-2 px-3 rounded-xl text-sm font-semibold hover:bg-fuchsia-500 transition">
+    🇮🇹 IT
+  </button>
+
+  <!-- HEADER -->
+  <header class="text-center py-10 px-4">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-fuchsia-400 drop-shadow-lg" data-i18n="title">Upload your Track</h1>
+    <p class="mt-2 text-neutral-400" data-i18n="subtitle">Choose the package that makes your music resonate</p>
+  </header>
+
+  <!-- REGOLAMENTO -->
+  <section class="max-w-4xl mx-auto px-4 mb-12">
+    <details class="bg-neutral-800/60 backdrop-blur rounded-xl shadow-lg p-6 open:shadow-xl">
+      <summary class="cursor-pointer font-semibold text-lg text-fuchsia-300 mb-4" data-i18n="rules_toggle">📜 Upload & Airplay Rules (click to read)</summary>
+      <article class="prose prose-invert max-w-none text-sm md:text-base">
+        <h3 data-i18n="mission_h">Vision & Mission</h3>
+        <p data-i18n="mission_p">AI‑Radio amplifies independent voices by blending human creativity with algorithms. These rules protect artists and ensure fair exposure.</p>
+
+        <h3 data-i18n="def_h">Definitions</h3>
+        <ul>
+          <li><span data-i18n="def_user"><strong>User</strong>: anyone who creates an AI‑Radio account.</span></li>
+          <li><span data-i18n="def_track"><strong>Track</strong>: original or licensed audio file uploaded by the User.</span></li>
+          <li><span data-i18n="def_pack"><strong>Package</strong>: prepaid bundle of upload credits with rotation guarantee.</span></li>
+        </ul>
+
+        <h3 data-i18n="tech_h">Technical Specs</h3>
+        <ul>
+          <li data-i18n="tech_format">MP3 320 kbps</li>
+          <li data-i18n="tech_cover">Square cover 1400–3000 px (JPG/PNG)</li>
+          <li data-i18n="tech_loud">Loudness −14 LUFS ±1</li>
+        </ul>
+      </article>
+    </details>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="max-w-4xl mx-auto px-4 mb-20">
+    <h2 class="text-2xl font-bold text-center mb-6" data-i18n="choose_pkg">Choose your Package</h2>
+    <div class="grid md:grid-cols-4 gap-6">
+
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Free</h3>
+        <p class="mb-4 text-neutral-400" data-i18n="free_desc">5 tracks · 1 play every 48 h</p>
+        <a href="upload.html?pkg=free" class="mt-auto inline-block bg-neutral-700 py-2 px-4 rounded font-bold hover:bg-fuchsia-500 transition" data-i18n="free_btn">Start Free</a>
+      </div>
+
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Starter</h3>
+        <p class="mb-4 text-neutral-400" data-i18n="starter_desc">10 tracks · 30 days · 1 play/day</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="STARTER10" />
+          <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=starter" />
+          <button class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition" data-i18n="starter_btn">€9.90</button>
+        </form>
+      </div>
+
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Momentum</h3>
+        <p class="mb-4 text-neutral-400" data-i18n="momentum_desc">25 tracks · 60 days · 2 plays/day</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="MOMENTUM25" />
+          <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=momentum" />
+          <button class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition" data-i18n="momentum_btn">€19.90</button>
+        </form>
+      </div>
+
+      <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+        <h3 class="text-xl font-semibold mb-2">Spotlight</h3>
+        <p class="mb-4 text-neutral-400" data-i18n="spotlight_desc">50 tracks · 90 days · 3 plays/day + slot</p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="SPOTLIGHT50" />
+          <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=spotlight" />
+          <button class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition" data-i18n="spotlight_btn">€39.90</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="text-center py-6 text-neutral-500 text-sm">© 2025 AI‑Radio</footer>
+
+<script>
+const translations = {
+  en: {
+    title: "Upload your Track",
+    subtitle: "Choose the package that makes your music resonate",
+    rules_toggle: "📜 Upload & Airplay Rules (click to read)",
+    mission_h: "Vision & Mission",
+    mission_p: "AI‑Radio amplifies independent voices by blending human creativity with algorithms. These rules protect artists and ensure fair exposure.",
+    def_h: "Definitions",
+    tech_h: "Technical Specs",
+    def_user: "User: anyone who creates an AI‑Radio account.",
+    def_track: "Track: original or licensed audio file uploaded by the User.",
+    def_pack: "Package: prepaid bundle of upload credits with rotation guarantee.",
+    tech_format: "MP3 320 kbps",
+    tech_cover: "Square cover 1400–3000 px (JPG/PNG)",
+    tech_loud: "Loudness −14 LUFS ±1",
+    choose_pkg: "Choose your Package",
+    free_desc: "5 tracks · 1 play every 48 h",
+    free_btn: "Start Free",
+    starter_desc: "10 tracks · 30 days · 1 play/day",
+    starter_btn: "€9.90",
+    momentum_desc: "25 tracks · 60 days · 2 plays/day",
+    momentum_btn: "€19.90",
+    spotlight_desc: "50 tracks · 90 days · 3 plays/day + slot",
+    spotlight_btn: "€39.90"
+  },
+  it: {
+    title: "Carica la tua Traccia",
+    subtitle: "Scegli il pacchetto che fa vibrare meglio la tua musica",
+    rules_toggle: "📜 Regolamento di Caricamento e Airplay (clicca per leggere)",
+    mission_h: "Visione & Missione",
+    mission_p: "AI‑Radio amplifica le voci indipendenti fondendo creatività umana e algoritmi. Questo regolamento tutela gli artisti e garantisce equità di esposizione.",
+    def_h: "Definizioni",
+    tech_h: "Specifiche Tecniche",
+    def_user: "Utente: chiunque crei un account su AI‑Radio.",
+    def_track: "Traccia: file audio originale o con licenza caricata dall’Utente.",
+    def_pack: "Pacchetto: credito prepagato di tracce con garanzia di rotazione.",
+    tech_format: "MP3 320 kbps",
+    tech_cover: "Cover quadrata 1400–3000 px (JPG/PNG)",
+    tech_loud: "Loudness −14 LUFS ±1",
+    choose_pkg: "Scegli il tuo Pacchetto",
+    free_desc: "5 tracce · 1 play ogni 48 h",
+    free_btn: "Inizia Gratis",
+    starter_desc: "10 tracce · 30 giorni · 1 play/giorno",
+    starter_btn: "9,90 €",
+    momentum_desc: "25 tracce · 60 giorni · 2 play/giorno",
+    momentum_btn: "19,90 €",
+    spotlight_desc: "50 tracce · 90 giorni · 3 play/giorno + slot",
+    spotlight_btn: "39,90 €"
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    el.textContent = translations[lang][key] || key;
+  });
+  localStorage.setItem("lang", lang);
+  document.documentElement.lang = lang;
+  document.getElementById("lang-switch").textContent = lang === "en" ? "🇮🇹 IT" : "🇬🇧 EN";
+}
+
+document.getElementById("lang-switch").addEventListener("click", () => {
+  const next = localStorage.getItem("lang") === "en" ? "it" : "en";
+  setLang(next);
+});
+
+// Auto-detect browser language (default EN)
+const browserLang = (navigator.language || navigator.userLanguage || "en").slice(0,2);
+const initialLang = localStorage.getItem("lang") || (browserLang === "it" ? "it" : "en");
+setLang(initialLang);
+</script>
+</body>
+</html>
