@@ -15,22 +15,23 @@
       font-family: 'Arial', sans-serif;
     }
 
-    /* Contenitore iframe: vicino bordo sinistro, metà pagina in alto */
+    /* Contenitore iframe: 1 cm dal bordo sinistro, centro verticale */
     .iframe-player {
       position: absolute;
-      top: 50%;             /* sposta il container al 50% dal bordo alto */
-      left: 10%;            /* sposta il container al 10% dal bordo sinistro */
+      top: 50%;
+      left: 1cm;
+      transform: translateY(-50%);
       background: rgba(0,0,0,0.5);
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
 
-    /* Iframe “pieno” ma con un bordo soft */
+    /* Iframe con dimensioni fisse e bordo soft */
     .iframe-player iframe {
       display: block;
-      width: 90vw;           /* 90% della larghezza del viewport */
-      height: 90vh;          /* 90% dell’altezza del viewport */
+      width: 720px;   /* dimensione originale */
+      height: 575px;  /* dimensione originale */
       border: none;
       border-radius: 4px;
       box-shadow: 0 0 15px rgba(0,0,0,0.6);
