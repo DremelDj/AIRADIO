@@ -4,33 +4,35 @@
   <meta charset="UTF-8">
   <title>AI-RADIO Player</title>
   <style>
-    /* Reset full-screen e sfondo */
+    /* reset e sfondo, con scroll verticale per non tagliare */
     html, body {
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;      /* si espande se serve */
+      overflow-y: auto;       /* permette di scorrere */
       background: #0b1f33 url('player-bg.png') center/cover no-repeat fixed;
       font-family: 'Arial', sans-serif;
     }
 
-    /* Container esatto 720×575, 1 cm da sinistra, centrato verticalmente */
+    /* contenitore esatto 720×575, 1 cm da sinistra,
+       posizionato al centro verticale quando lo schermo lo consente */
     .iframe-player {
       position: absolute;
       left: 1cm;
       top: calc((100vh - 575px) / 2);
-      width: 980px;
+      width: 720px;
       height: 575px;
     }
 
-    /* Iframe che riempie esattamente il contenitore */
+    /* il vero player che riempie il contenitore */
     .iframe-player iframe {
       width: 100%;
       height: 100%;
       border: none;
       border-radius: 4px;
       box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      overflow: hidden;
     }
   </style>
 </head>
