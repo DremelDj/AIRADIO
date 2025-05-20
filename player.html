@@ -4,47 +4,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Il Tuo Player Radio</title>
+
   <style>
-    /* --- Stili di base e reset --- */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* --- Reset veloce --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       height: 100%;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #0d0d0d;  /* sfondo scuro, meno affaticamento visivo */
+      background: #0d0d0d;      /* sipario scuro */
       color: #f0f0f0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* --- Contenitore responsivo per il player --- */
+    /* --- Contenitore responsivo del player --- */
     .radio-player {
       position: relative;
-      width: 90%;            /* occupa gran parte dello schermo senza toccare i bordi */
-      max-width: 720px;      /* non supera la grandezza originale */
-      padding-top: 80%;      /* 575 / 720 ≈ 0.8 — mantiene il rapporto */
+      width: 100%;
+      max-width: 720px;          /* non oltre la misura nativa */
+      margin: 0 auto;
+      padding-top: 79.86%;       /* rapporto (575 / 720)×100 */
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      box-shadow: 0 0 20px rgba(0,0,0,.6);
     }
-
     .radio-player iframe {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       border: 0;
     }
   </style>
 </head>
+
 <body>
-  <main class="radio-player">
+  <div class="radio-player">
     <iframe
       src="https://radio.hoarstream.com/custom-player/1230"
       title="Hoarstream Radio Player"
@@ -52,10 +48,6 @@
       frameborder="0"
       allow="autoplay">
     </iframe>
-  </main>
-</body>
-</html>
-
-</script>
+  </div>
 </body>
 </html>
