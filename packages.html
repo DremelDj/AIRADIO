@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI‑Radio · Packages</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-950 text-neutral-200 font-sans leading-relaxed">
+<button id="lang-switch" class="fixed top-4 right-4 bg-neutral-800/70 backdrop-blur py-2 px-3 rounded-xl text-sm font-semibold hover:bg-fuchsia-500 transition">🇮🇹 IT</button>
+<header class="text-center py-10 px-4">
+  <h1 data-i18n="title" class="text-4xl md:text-5xl font-extrabold tracking-tight text-fuchsia-400 drop-shadow-lg">Upload your Track</h1>
+  <p data-i18n="subtitle" class="mt-2 text-neutral-400">Choose the package that makes your music resonate</p>
+</header>
+
+<section class="max-w-4xl mx-auto px-4 mb-12">
+  <details class="bg-neutral-800/60 backdrop-blur rounded-xl shadow-lg p-6 open:shadow-xl">
+    <summary data-i18n="rules_toggle" class="cursor-pointer font-semibold text-lg text-fuchsia-300 mb-4">📜 Upload & Airplay Rules (click to read)</summary>
+    <article class="prose prose-invert max-w-none text-sm md:text-base max-h-[70vh] overflow-y-auto pr-3">
+      <h3 data-i18n="mission_h"></h3><p data-i18n="mission_p"></p>
+      <h3 data-i18n="def_h"></h3>
+      <ul><li data-i18n="def_user"></li><li data-i18n="def_track"></li><li data-i18n="def_pack"></li><li data-i18n="def_rotation"></li></ul>
+      <h3 data-i18n="tech_h"></h3>
+      <ul><li data-i18n="tech_format"></li><li data-i18n="tech_cover"></li><li data-i18n="tech_loud"></li></ul>
+      <h3 data-i18n="rights_h"></h3><p data-i18n="rights_p"></p>
+      <h3 data-i18n="changes_h"></h3><p data-i18n="changes_p"></p>
+    </article>
+  </details>
+</section>
+
+<section class="max-w-4xl mx-auto px-4 mb-20">
+  <h2 data-i18n="choose_pkg" class="text-2xl font-bold text-center mb-6">Choose your Package</h2>
+  <div class="grid md:grid-cols-4 gap-6">
+
+    <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">Free</h3>
+      <p data-i18n="free_desc" class="mb-4 text-neutral-400"></p>
+      <a href="upload.html?pkg=free" data-i18n="free_btn" class="mt-auto inline-block bg-neutral-700 py-2 px-4 rounded font-bold hover:bg-fuchsia-500 transition">Start Free</a>
+    </div>
+
+    <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">Starter</h3>
+      <p data-i18n="starter_desc" class="mb-4 text-neutral-400"></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="STARTER10" />
+        <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=starter" />
+        <button data-i18n="starter_btn" class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition">€9.90</button>
+      </form>
+    </div>
+
+    <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">Momentum</h3>
+      <p data-i18n="momentum_desc" class="mb-4 text-neutral-400"></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="MOMENTUM25" />
+        <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=momentum" />
+        <button data-i18n="momentum_btn" class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition">€19.90</button>
+      </form>
+    </div>
+
+    <div class="bg-neutral-800 p-6 rounded-xl shadow text-center flex flex-col">
+      <h3 class="text-xl font-semibold mb-2">Spotlight</h3>
+      <p data-i18n="spotlight_desc" class="mb-4 text-neutral-400"></p>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-auto">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="SPOTLIGHT50" />
+        <input type="hidden" name="return" value="https://tuodominio.github.io/upload.html?pkg=spotlight" />
+        <button data-i18n="spotlight_btn" class="w-full bg-fuchsia-500 py-2 rounded font-bold hover:opacity-90 transition">€39.90</button>
+      </form>
+    </div>
+  </div>
+</section>
+<footer class="text-center py-6 text-neutral-500 text-sm">© 2025 AI‑Radio</footer>
+
+<script>
+const translations = {
+  en: {
+    title:"Upload your Track", subtitle:"Choose the package that makes your music resonate",
+    rules_toggle:"📜 Upload & Airplay Rules (click to read)",
+    mission_h:"Vision & Mission", mission_p:"AI‑Radio amplifies independent voices…",
+    def_h:"Definitions", def_user:"User: anyone who creates an AI‑Radio account.",
+    def_track:"Track: original or licensed audio file uploaded by the User.",
+    def_pack:"Package: prepaid upload credits.", def_rotation:"Rotation guarantee: min plays",
+    tech_h:"Technical Specs", tech_format:"MP3 320 kbps", tech_cover:"Square cover 1400–3000 px",
+    tech_loud:"Loudness −14 LUFS ±1", rights_h:"Rights & Licences", rights_p:"User retains rights…",
+    changes_h:"Changes", changes_p:"We’ll notify 7 days before changes.", choose_pkg:"Choose your Package",
+    free_desc:"5 tracks · 1 play/48 h", free_btn:"Start Free",
+    starter_desc:"10 tracks · 30 days · 1 play/day", starter_btn:"€9.90",
+    momentum_desc:"25 tracks · 60 days · 2 plays/day", momentum_btn:"€19.90",
+    spotlight_desc:"50 tracks · 90 days · 3 plays/day + slot", spotlight_btn:"€39.90"
+  },
+  it: {
+    title:"Carica la tua Traccia", subtitle:"Scegli il pacchetto che fa vibrare la tua musica",
+    rules_toggle:"📜 Regolamento di Caricamento e Airplay (clicca per leggere)",
+    mission_h:"Visione & Missione", mission_p:"AI‑Radio amplifica le voci indipendenti…",
+    def_h:"Definizioni", def_user:"Utente: chiunque crei un account su AI‑Radio.",
+    def_track:"Traccia: file audio originale o con licenza caricata dall’Utente.",
+    def_pack:"Pacchetto: credito di upload prepagato.", def_rotation:"Rotazione garantita: play minimi",
+    tech_h:"Specifiche Tecniche", tech_format:"MP3 320 kbps",
+    tech_cover:"Cover quadrata 1400–3000 px", tech_loud:"Loudness −14 LUFS ±1",
+    rights_h:"Diritti & Licenze", rights_p:"L’utente mantiene tutti i diritti…",
+    changes_h:"Modifiche", changes_p:"Aggiornamenti comunicati 7 giorni prima.",
+    choose_pkg:"Scegli il tuo Pacchetto",
+    free_desc:"5 tracce · 1 play ogni 48 h", free_btn:"Inizia Gratis",
+    starter_desc:"10 tracce · 30 giorni · 1 play/giorno", starter_btn:"9,90 €",
+    momentum_desc:"25 tracce · 60 giorni · 2 play/giorno", momentum_btn:"19,90 €",
+    spotlight_desc:"50 tracce · 90 giorni · 3 play/giorno + slot", spotlight_btn:"39,90 €"
+  }
+};
+
+function setLang(lang){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    el.textContent=translations[lang][el.dataset.i18n]||el.dataset.i18n;
+  });
+  localStorage.setItem("lang",lang);
+  document.documentElement.lang=lang;
+  document.getElementById("lang-switch").textContent=lang==="en"?"🇮🇹 IT":"🇬🇧 EN";
+}
+
+document.getElementById("lang-switch").onclick=()=>setLang(localStorage.getItem("lang")==="en"?"it":"en");
+const browserLang=(navigator.language||"en").slice(0,2);
+setLang(localStorage.getItem("lang")|| (browserLang==="it"?"it":"en"));
+</script>
+</body>
+</html>
