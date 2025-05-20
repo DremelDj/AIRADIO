@@ -15,16 +15,16 @@
       font-family: 'Arial', sans-serif;
     }
 
-    /* Contenitore iframe: bordo sinistro, più alto rispetto al centro */
+    /* Contenitore iframe: bordo sinistro, metà pagina in alto */
     .iframe-player {
       position: absolute;
-      top: 2%;             /* sposta il container al 2% dall’alto */
-      left: 1%;            /* sposta il container al 1% da sinistra */
+      top: 50%;             /* sposta il container al 50% dall’alto */
+      left: 10%;            /* sposta il container al 10% da sinistra */
       transform: translateY(-40%);
       background: rgba(0,0,0,0.5);
       padding: 1rem;
-      border-radius: 4px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
 
     /* Iframe “pieno” ma con un bordo soft */
@@ -34,7 +34,7 @@
       height: 90vh;          /* 90% dell’altezza del viewport */
       border: none;
       border-radius: 4px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
       overflow: hidden;
     }
   </style>
