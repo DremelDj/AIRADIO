@@ -1,73 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>AI‑RADIO Player</title>
-<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  body{margin:0;padding:0;height:100vh;background:url('player-bg.png') center/cover no-repeat fixed;
-       display:flex;justify-content:center;align-items:center;font-family:Arial,sans-serif;color:#fff}
-  .player-container{width:360px;max-width:90%;text-align:center}
-  .plyr--audio .plyr__controls{background:rgba(0,0,0,.6);border-radius:8px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Il Tuo Player Radio</title>
+  <style>
+    /* --- Stili di base e reset --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0d0d0d;  /* sfondo scuro, meno affaticamento visivo */
+      color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- Contenitore responsivo per il player --- */
+    .radio-player {
+      position: relative;
+      width: 90%;            /* occupa gran parte dello schermo senza toccare i bordi */
+      max-width: 720px;      /* non supera la grandezza originale */
+      padding-top: 80%;      /* 575 / 720 ≈ 0.8 — mantiene il rapporto */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    .radio-player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
-  <div class="player-container">
-    <div id="meta" class="flex flex-col items-center mb-4">
-      <img id="cover-art" src="cover-placeholder.png" class="w-40 h-40 rounded-lg object-cover shadow">
-      <h2 id="track-title" class="mt-2 font-semibold text-lg">Loading…</h2>
-      <p id="track-artist" class="text-sm text-neutral-300"></p>
-    </div>
+  <main class="radio-player">
+    <iframe
+      src="https://radio.hoarstream.com/custom-player/1230"
+      title="Hoarstream Radio Player"
+      scrolling="no"
+      frameborder="0"
+      allow="autoplay">
+    </iframe>
+  </main>
+</body>
+</html>
 
-    <audio id="audio-player" class="js-player" controls crossorigin>
-      <source src="https://radio.hoarstream.com:1230/stream" type="audio/mp3">
-      Your browser does not support HTML5 audio.
-    </audio>
-  </div>
-
-<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-<script>
-  const player = new Plyr('#audio-player', {
-    controls:['play','progress','current-time','mute','volume'],
-    autoplay:true,
-  });
-
-  const statusURL = 'https://radio.hoarstream.com:1230/status-json.xsl?sid=1';
-  const corsProxy = 'https://api.allorigins.win/raw?url='; // simple CORS bypass
-
-  async function fetchMeta(){
-    try{
-      // Fetch current song info
-      const res = await fetch(corsProxy + encodeURIComponent(statusURL));
-      const data = await res.json();
-      const source = Array.isArray(data.icestats.source) ? data.icestats.source[0] : data.icestats.source;
-      const titleString = source.title || '';
-      let artist = '', track = titleString;
-      if(titleString.includes(' - ')){
-        [artist, track] = titleString.split(' - ');
-      }
-      document.getElementById('track-title').textContent = track;
-      document.getElementById('track-artist').textContent = artist;
-
-      // Try to fetch cover
-      const widgetURL = corsProxy + encodeURIComponent(
-        `https://radio.hoarstream.com/widget/get-track-data?track_name=${encodeURIComponent(track)}`
-      );
-      const w = await fetch(widgetURL);
-      if(w.ok){
-        const j = await w.json();
-        if(j.cover_url){
-          document.getElementById('cover-art').src = j.cover_url;
-        }
-      }
-    }catch(err){
-      console.warn('Metadata fetch error', err);
-    }
-  }
-
-  fetchMeta();
-  setInterval(fetchMeta,15000);
 </script>
 </body>
 </html>
