@@ -3,57 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <title>AI-RADIO Player</title>
-
   <style>
-    /* Sfondo e reset */
-    html, body{
-      margin:0; padding:0;
-      width:100vw; height:100vh;
-      overflow:hidden;
-      background:#0b1f33 url('player-bg.png') center/cover no-repeat fixed;
-      font-family:Arial, Helvetica, sans-serif;
+    /* — Reset full-screen e sfondo — */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #0b1f33 url('player-bg.png') center/cover no-repeat fixed;
+      font-family: 'Arial', sans-serif;
     }
 
-    /* Contenitore 575×720, 1 cm da sinistra e centrato in verticale */
-    .player-box{
-      position:absolute;
-      left:1cm;
-      top:calc((100vh - 720px) / 2);
-      width:575px;
-      height:720px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      background:rgba(0,0,0,.55);
-      border-radius:6px;
-      box-shadow:0 0 15px rgba(0,0,0,.6);
-      padding:1.5rem;
+    /* — Contenitore del player di dimensioni 575×720 px,
+         1 cm dal bordo sinistro e centrato verticalmente — */
+    .audio-player {
+      position: absolute;
+      left: 1cm;
+      top: calc((100vh - 720px) / 2);
+      width: 575px;
+      height: 720px;
+      display: flex;
+      align-items: center;    /* centra l’audio-control verticalmente */
+      justify-content: center;/* centra l’audio-control orizzontalmente */
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     }
 
-    h1{
-      margin:0 0 1rem;
-      font-size:1.25rem;
-      color:#fff;
-      letter-spacing:.03em;
+    /* — L’audio-control nativo, esteso al 90% della larghezza disponibile — */
+    .audio-player audio {
+      width: 90%;
+      /* In base al browser, l’altezza si adatterà da sola. */
     }
 
-    audio{
-      width:100%;
+    /* Facoltativo: sul mobile scroll verticale per non tagliare niente */
+    @media (max-height: 720px) {
+      html, body {
+        overflow-y: auto;
+      }
+      .audio-player {
+        top: 40px; /* lascia un po’ di margine in cima su schermi bassi */
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="player-box">
-    <h1>AI-RADIO&nbsp;· Live&nbsp;Stream</h1>
-
-    <!-- Sorgente aggiornata alla porta 26422 -->
-    <audio controls preload="none">
+  <div class="audio-player">
+    <audio controls autoplay>
       <source src="https://radio.hoarstream.com:26422/stream" type="audio/mpeg">
-      Your browser does not support the audio element.
+      Il tuo browser non supporta l’elemento audio.
     </audio>
   </div>
+
+</body>
+</html>
 
 </body>
 </html>
