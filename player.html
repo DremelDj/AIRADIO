@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Radio Player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Stili minimi: nero di palco e luce sul player -->
+  <style>
+    html, body { margin: 0; padding: 0; background: #000; color: #fff;
+                 font-family: system-ui, sans-serif; }
+    /* Contenitore responsivo: mantiene il rapporto 720×575 ovunque */
+    .radio-player {
+      position: relative;
+      width: 100%;
+      max-width: 720px;   /* non superare la larghezza originale */
+      margin: 0 auto;     /* centra sul palco */
+      padding-top: 79.86%;/* 575 ÷ 720 × 100 */
+    }
+    .radio-player iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Il cuore pulsante -->
+  <div class="radio-player">
+    <iframe
+      src="https://radio.hoarstream.com/custom-player/1230"
+      title="Radio Player"
+      allow="autoplay">
+    </iframe>
+  </div>
+</body>
+</html>
